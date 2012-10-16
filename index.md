@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Steve Kennaird's Development Blog
-tagline: Adventures in web development
+title: "Steve Kennaird's Development Blog"
 ---
 {% include JB/setup %}
   
-## Latest Posts
+## Latest Posts ##
 
 <ul class="posts">
   {% for post in site.posts %}
