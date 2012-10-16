@@ -1,9 +1,11 @@
 ---
 layout: page
 title: "About"
-tagline: Who I am and what I do
+tagline: "Steve Kennaird"
 group: navigation
 ---
 {% include JB/setup %}
 
-## Steve Kennaird - Developer ##
+## Who I am and what I do ##
+
+I'm a developer based in Kent, United Kingdom, and am passionate about development, particularly web development.
