@@ -9,8 +9,8 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Development Blog
-tagline: Blogging about web development adventures
+title : Steve Kennaird - Development Blog
+tagline: Blogging about web development
 author :
   name : Steve Kennaird
   email : steve@steveonthefly.co.uk

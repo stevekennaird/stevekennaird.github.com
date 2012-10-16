@@ -1,9 +1,9 @@
 ---
 layout: page
 title: "About"
-description: ""
+tagline: Who I am and what I do
 group: navigation
 ---
 {% include JB/setup %}
 
-## Steve Kennaird ##
+## Steve Kennaird - Developer ##
