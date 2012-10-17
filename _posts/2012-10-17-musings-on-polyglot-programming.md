@@ -2,8 +2,8 @@
 layout: post
 title: "Musings on Polyglot Programming"
 description: ""
-category:  "Career Advice"
-tags: [polyglot, career advice, random]
+category:  "Career-Advice"
+tags: [polyglot, career-advice, random]
 ---
 {% include JB/setup %}
 
