@@ -33,6 +33,7 @@ First of all, you need an admin area where you can add/edit/delete redirects, wh
 
 For each redirect type you use, you then need to set up a stored procedure in the same database, like so:
 
+<pre>
 `
 CREATE PROCEDURE [dbo].[GetRewrittenUrl301]          
 @input nvarchar(256)          
@@ -41,6 +42,7 @@ SELECT NewUrl
 FROM dbo.Redirect          
 WHERE @input LIKE OriginalUrl AND StatusCode = 301
 `
+</pre>
 
 Note the use of the like keyword in the stored procedure. This allows you to enter wildcard redirects, e.g. if you had a record in the Redirect table where the OriginalUrl was 'old-folder-name/%', and urls starting with
 'old-folder-name/' would be redirected; you wouldn't need to create a redirect for every single child page for that folder.
@@ -48,6 +50,7 @@ Note the use of the like keyword in the stored procedure. This allows you to ent
 Now, you can either use IIS7 to setup your UrlRewrite providers, or you can try and set it up via the web.config. Follow [this](http://www.iis.net/learn/extensions/url-rewrite-module/using-custom-rewrite-providers-with-url-rewrite-module) for instructions of how to do it in IIS7 manually, or amend the code
 below to suit your scenario (it must go withing the system.webServer node). In my case, I'm only handling 301 and 302 redirects. You'll need to amend the connection string to connect to your database.
 
+<pre>
 `
 <rewrite>          
       <providers>          
@@ -68,6 +71,7 @@ below to suit your scenario (it must go withing the system.webServer node). In m
       </providers>          
 </rewrite>
 `
+</pre>
 
 You can see that I got my inspiration from [here](http://www.iis.net/learn/extensions/url-rewrite-module/using-custom-rewrite-providers-with-url-rewrite-module), I just extended it to handle different types of redirects.
 
