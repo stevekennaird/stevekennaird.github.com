@@ -25,9 +25,9 @@ my code shorter and more clean. This is my opinion obviously, but when you see t
 
 First of all, you need an admin area where you can add/edit/delete redirects, which I won't go through as that isn't the point of this post. You need to store in a SQL database table:
 
-* Original Url [nvarchar(256)] (The url you want to redirect somewhere else) 
-* Destination Url [nvarchar(256)] (Where you want the request to be redirected to)
-* Redirect Type [int] (An integer representation of a HttpStatusCode, e.g. 301 for a permanent redirect, 302 for found, or 307 for a temporary redirect)
+* Original Url as data type nvarchar(256) (The url you want to redirect somewhere else) 
+* Destination Url as data type nvarchar(256) (Where you want the request to be redirected to)
+* Redirect Type as data type int (An integer representation of a HttpStatusCode, e.g. 301 for a permanent redirect, 302 for found, or 307 for a temporary redirect)
 
 *Important: Make sure you index the original url column, and the redirect type columns.*
 
