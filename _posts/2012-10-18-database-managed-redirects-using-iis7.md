@@ -34,12 +34,12 @@ First of all, you need an admin area where you can add/edit/delete redirects, wh
 For each redirect type you use, you then need to set up a stored procedure in the same database, like so:
 
 `
-CREATE PROCEDURE [dbo].[GetRewrittenUrl301]  return
-@input nvarchar(256)  return
-AS  return
-SELECT NewUrl  return
-FROM dbo.Redirect   return
-WHERE @input LIKE OriginalUrl AND StatusCode = 301    return
+CREATE PROCEDURE [dbo].[GetRewrittenUrl301] <br />
+@input nvarchar(256) <br />
+AS <br />
+SELECT NewUrl <br />
+FROM dbo.Redirect  <br />
+WHERE @input LIKE OriginalUrl AND StatusCode = 301   <br />
 `
 Note the use of the like keyword in the stored procedure. This allows you to enter wildcard redirects, e.g. if you had a record in the Redirect table where the OriginalUrl was 'old-folder-name/%', and urls starting with
 'old-folder-name/' would be redirected; you wouldn't need to create a redirect for every single child page for that folder.
@@ -48,23 +48,23 @@ Now, you can either use IIS7 to setup your UrlRewrite providers, or you can try 
 below to suit your scenario (it must go withing the system.webServer node). In my case, I'm only handling 301 and 302 redirects. You'll need to amend the connection string to connect to your database.
 
 `
-<rewrite>    return
-      <providers>    return
-        <provider name="DbProvider_Permanent" type="DbProvider, Microsoft.Web.Iis.Rewrite.Providers, Version=7.1.761.0, Culture=neutral, PublicKeyToken=0545b0627da60a5f">    return
-          <settings>    return
-            <add key="ConnectionString" value="Data Source=.\SQLExpress;Initial Catalog=HF-Live;Persist Security Info=True;User ID=my-db-username;Password=my-db-pass" />    return
-            <add key="StoredProcedure" value="GetRewrittenUrl301" />    return
-            <add key="CacheMinutesInterval" value="1" />    return
-          </settings>    return
-        </provider>    return
-        <provider name="DbProvider_Found" type="DbProvider, Microsoft.Web.Iis.Rewrite.Providers, Version=7.1.761.0, Culture=neutral, PublicKeyToken=0545b0627da60a5f">    return
-          <settings>    return
-            <add key="ConnectionString" value="Data Source=.\SQLExpress;Initial Catalog=HF-Live;Persist Security Info=True;User ID=my-db-username;Password=my-db-pass" />    return
-            <add key="StoredProcedure" value="GetRewrittenUrl302" />    return
-            <add key="CacheMinutesInterval" value="1" />    return
-          </settings>    return
-        </provider>    return
-      </providers>    return
+<rewrite>   <br />
+      <providers>   <br />
+        <provider name="DbProvider_Permanent" type="DbProvider, Microsoft.Web.Iis.Rewrite.Providers, Version=7.1.761.0, Culture=neutral, PublicKeyToken=0545b0627da60a5f">   <br />
+          <settings>   <br />
+            <add key="ConnectionString" value="Data Source=.\SQLExpress;Initial Catalog=HF-Live;Persist Security Info=True;User ID=my-db-username;Password=my-db-pass" />   <br />
+            <add key="StoredProcedure" value="GetRewrittenUrl301" />   <br />
+            <add key="CacheMinutesInterval" value="1" />   <br />
+          </settings>   <br />
+        </provider>   <br />
+        <provider name="DbProvider_Found" type="DbProvider, Microsoft.Web.Iis.Rewrite.Providers, Version=7.1.761.0, Culture=neutral, PublicKeyToken=0545b0627da60a5f">   <br />
+          <settings>   <br />
+            <add key="ConnectionString" value="Data Source=.\SQLExpress;Initial Catalog=HF-Live;Persist Security Info=True;User ID=my-db-username;Password=my-db-pass" />   <br />
+            <add key="StoredProcedure" value="GetRewrittenUrl302" />   <br />
+            <add key="CacheMinutesInterval" value="1" />   <br />
+          </settings>   <br />
+        </provider>   <br />
+      </providers>   <br />
 </rewrite>
 `
 
