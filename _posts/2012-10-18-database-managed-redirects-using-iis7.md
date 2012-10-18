@@ -7,7 +7,7 @@ tags: [iis, sql-server]
 ---
 {% include JB/setup %}
 
-## Handling database-managed redirects for a website in IIS7
+## Handling database-managed redirects for a website running in IIS7
 
 So you've got a website that you've got hundreds of redirects for. Maybe you're replacing an old site that had a poor url structure, 
 but don't want to lose any SEO juice attributed to the old pages, and you don't want everyone who comes to your site from a search engine seeing a 404.
