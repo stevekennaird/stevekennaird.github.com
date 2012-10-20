@@ -65,7 +65,23 @@ below to suit your scenario (it must go withing the system.webServer node). In m
             &lt;add key="CacheMinutesInterval" value="1" /&gt;          
           &lt;/settings&gt;          
         &lt;/provider&gt;          
-      &lt;/providers&gt;          
+      &lt;/providers&gt;  
+      &lt;rules&gt;
+      &lt;rule name="DbProviderPermanent" stopProcessing="true"&gt;
+          &lt;match url="(.*)" /&gt;
+          &lt;conditions&gt;
+            &lt;add input="{DbProvider_Permanent:{R:1}}" pattern="(.+)" /&gt;
+          &lt;/conditions&gt;
+          &lt;action type="Redirect" url="{C:1}" redirectType="Permanent" /&gt;
+        &lt;/rule&gt;
+        &lt;rule name="DbProviderFound" stopProcessing="true"&gt;
+          &lt;match url="(.*)" /&gt;
+          &lt;conditions&gt;
+            &lt;add input="{DbProvider_Found:{R:1}}" pattern="(.+)" /&gt;
+          &lt;/conditions&gt;
+          &lt;action type="Redirect" url="{C:1}" redirectType="Found" /&gt;
+        &lt;/rule&gt;
+      &lt;/rules&gt;
 &lt;/rewrite&gt;
 </pre>
 
