@@ -3,7 +3,7 @@ layout: post
 title: "Using the ASP.Net Empty Project Template"
 description: ""
 category: ASP.Net
-tags: [asp.net, visual studio]
+tags: [asp.net, visual-studio, asp.net-mvc]
 ---
 {% include JB/setup %}
 
@@ -26,8 +26,13 @@ Developers should never be surprised when the requirements change, even the best
 that was intended to only serve PDFs from a download link on other websites now needed the ability to browse the complete catalog of available PDFs in a category structure.
 I now wanted MVC in the project, as that's my tool of choice for quickly developing dynamic pages.
 
-So, step one, download and install the ASP.Net MVC package.
+So, step one, download and install the ASP.Net MVC package via the Package Manager console (or via the Nuget packages UI).
 
 <pre>
 PM&gt; Install-Package Microsoft.AspNet.Mvc
 </pre>
+
+Next, I was expecting the project to take on the role of an MVC project; I'd be able to easily add Controllers via the context menus on Solution Explorer items,
+I'd be able to easily add missing Views for ActionResult methods where Visual Studio had detected the view was missing. But no, that wasn't the case at all!
+
+... solution to follow ...
