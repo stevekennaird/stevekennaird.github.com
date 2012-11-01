@@ -14,9 +14,20 @@ the different project types available to users in Visual Studio rail-roaded the 
 before they'd even really started. Whilst the different template types were great in terms of saving the user some initial configuration work to do
 when creating a project (e.g. referncing the relevant DLLs, setting up handlers in the web.config file), it became difficult to mix project types.
 
-By creating a single ASP.Net, Visual Studio could offer users the ability to have a "plain" ASP.Net website project, but they could then add MVC4 capabilities
-by downloading the [MVC4 Nuget package](http://nuget.org/packages/Microsoft.AspNet.Mvc). When tasked with a new website build, I thought I could put this to the test,
-as initially the website only needed to handle requests for PDF files, which I knew I could serve using a HttpHandler. I knew there was no need for the extra bloat
+By creating a single ASP.Net, Visual Studio could offer users the ability to have a "plain" ASP.Net website project, but they could then add (amongst other things) MVC4 capabilities
+by installing the [MVC Nuget package](http://nuget.org/packages/Microsoft.AspNet.Mvc). When tasked with a new website build, I thought I could put this to the test,
+as initially the website only needed to handle requests for PDF files, which I knew could be served using an HttpHandler. I knew there was no need for the extra bloat
 and code involved in using an MVC controller, so decided to opt for the ASP.Net Empty Project template, knowing that I should be able to get MVC added later into the same 
 project if/when needed. So far so good, the website was launched, PDFs were served to users, everybody was happy.
 
+### But the requirements changed!
+
+Developers should never be surprised when the requirements change, even the best planned projects can have shifting requirements. In my case, the project I had built
+that was intended to only serve PDFs from a download link on other websites now needed the ability to browse the complete catalog of available PDFs in a category structure.
+I now wanted MVC in the project, as that's my tool of choice for quickly developing dynamic pages.
+
+So, step one, download and install the ASP.Net MVC package.
+
+<pre>
+PM&gt; Install-Package Microsoft.AspNet.Mvc
+</pre>
