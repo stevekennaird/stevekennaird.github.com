@@ -59,9 +59,9 @@ namespace MyPlainAspNetApplication
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.MapRoute(
-                "BrowseControllerRoute",                                              // Route name
-                "browse/{action}",                           // URL with parameters
-                new { controller = "Browse", action = "Index" }  // Parameter defaults
+                "BrowseControllerRoute",						// Route name
+                "browse/{action}",								// URL with parameters
+                new { controller = "Browse", action = "Index" } // Parameter defaults
             );
 
         }
@@ -83,12 +83,12 @@ Without this, request urls that you've just set up routing for will return a 404
 <pre>
 &lt;modules runAllManagedModulesForAllRequests="true" /&gt;
 &lt;handlers&gt;
-&lt;remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" /&gt;
-      &lt;remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" /&gt;
-      &lt;remove name="ExtensionlessUrlHandler-Integrated-4.0" /&gt;
-      &lt;add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" /&gt;
-      &lt;add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" /&gt;
-      &lt;add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" /&gt;
+	&lt;remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" /&gt;
+    &lt;remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" /&gt;
+    &lt;remove name="ExtensionlessUrlHandler-Integrated-4.0" /&gt;
+    &lt;add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" /&gt;
+    &lt;add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" /&gt;
+    &lt;add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" /&gt;
 &lt;/handlers&gt;
 </pre>
 
@@ -98,24 +98,24 @@ There are two required appSettings values that need to be added for MVC to work 
 
 <pre>
 &lt;appSettings&gt;
-    &lt;add key="webpages:Version" value="2.0.0.0" /&gt;
-    &lt;add key="webpages:Enabled" value="false" /&gt;
-  &lt;/appSettings&gt;
+	&lt;add key="webpages:Version" value="2.0.0.0" /&gt;
+	&lt;add key="webpages:Enabled" value="false" /&gt;
+&lt;/appSettings&gt;
 </pre>
 
 Next, the standard MVC pages node needs to be added to the web.config system.web node like so:
 
 <pre>
 &lt;pages&gt;
-      &lt;namespaces&gt;
-        &lt;add namespace="System.Web.Helpers" /&gt;
-        &lt;add namespace="System.Web.Mvc" /&gt;
-        &lt;add namespace="System.Web.Mvc.Ajax" /&gt;
-        &lt;add namespace="System.Web.Mvc.Html" /&gt;
-        &lt;add namespace="System.Web.Routing" /&gt;
-        &lt;add namespace="System.Web.WebPages" /&gt;
-      &lt;/namespaces&gt;
-    &lt;/pages&gt;
+    &lt;namespaces&gt;
+    &lt;add namespace="System.Web.Helpers" /&gt;
+    &lt;add namespace="System.Web.Mvc" /&gt;
+    &lt;add namespace="System.Web.Mvc.Ajax" /&gt;
+    &lt;add namespace="System.Web.Mvc.Html" /&gt;
+    &lt;add namespace="System.Web.Routing" /&gt;
+    &lt;add namespace="System.Web.WebPages" /&gt;
+    &lt;/namespaces&gt;
+ &lt;/pages&gt;
 </pre>
 
 #### Step Four: Hacking the project file to behave like an MVC project
@@ -131,14 +131,14 @@ In my case, I had to close down Visual Studio, *backup* the csproj I was about t
 From:
 <pre>
 &lt;ProjectTypeGuids&gt;
-{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}
+	{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}
 &lt;/ProjectTypeGuids&gt;
 </pre>
 
 To:
 <pre>
 &lt;ProjectTypeGuids&gt;
-{E3E379DF-F4C6-4180-9B81-6769533ABE47};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}
+	{E3E379DF-F4C6-4180-9B81-6769533ABE47};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}
 &lt;/ProjectTypeGuids&gt;
 </pre>
 
