@@ -3,7 +3,7 @@ layout: post
 title: "Database managed redirects using IIS7"
 description: ""
 category: Internet-Information-Services
-tags: [iis, sql-server]
+tags: [iis, sql-server, asp.net]
 ---
 {% include JB/setup %}
 
