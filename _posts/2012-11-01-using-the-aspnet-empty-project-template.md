@@ -130,16 +130,20 @@ In my case, I had to close down Visual Studio, *backup* the csproj I was about t
 
 From:
 <pre>
-&lt;ProjectTypeGuids&gt;{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}&lt;/ProjectTypeGuids&gt;
+&lt;ProjectTypeGuids&gt;
+{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}
+&lt;/ProjectTypeGuids&gt;
 </pre>
 
 To:
 <pre>
-&lt;ProjectTypeGuids&gt;{E3E379DF-F4C6-4180-9B81-6769533ABE47};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}&lt;/ProjectTypeGuids&gt;
+&lt;ProjectTypeGuids&gt;
+{E3E379DF-F4C6-4180-9B81-6769533ABE47};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}
+&lt;/ProjectTypeGuids&gt;
 </pre>
 
 You can see that contains two GUIDs. The first one is the project type, and the second is the language used. So in my case, the first is Empty ASP.Net Project and C#, and the second
-is MVC Project and C#. Make sure you only change the first value here.
+is MVC 4 Project and C#. Make sure you only change the first value here.
 
 Once that has been done, you can open your solution file again, and you should notice that your project is an MVC project. You get the "Add Controller..." context menu option once you click on
 your "Controllers" folder in the Solution Explorer, adding View files becomes easy again.
