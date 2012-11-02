@@ -145,3 +145,11 @@ Once that has been done, you can open your solution file again, and you should n
 your "Controllers" folder in the Solution Explorer, adding View files becomes easy again.
 
 Problem solved.
+
+
+
+
+I worked out how to do this by comparing my empty ASP.Net project with a new MVC project. I also gained help relating to ProjectTypeGuids from the following two pages:
+
+* [ASP.Net MVC 4 release notes](http://www.asp.net/whitepapers/mvc4-release-notes#_Toc303253806) - specifically the part about upgrading MVC3 to MVC4
+* [StackOverflow question about ProjectTypeGuids](http://stackoverflow.com/questions/2911565/what-is-the-significance-of-projecttypeguids-tag-in-the-visual-studio-project-fi)
