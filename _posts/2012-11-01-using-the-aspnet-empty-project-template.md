@@ -7,7 +7,7 @@ tags: [asp.net, visual-studio, asp.net-mvc]
 ---
 {% include JB/setup %}
 
-##Getting yourself out of a jam once you've built on top of the ASP.Net Empty Project Template
+#Getting yourself out of a jam once you've built on top of the ASP.Net Empty Project Template
 
 With the launch of ASP.Net v4.5 and MVC4/WebAPI etc, the ASP.Net team took the admirable step to making a "single ASP.Net". The theory being that
 the different project types available to users in Visual Studio rail-roaded the user to making big choices about the application they were building
@@ -20,7 +20,7 @@ as initially the website only needed to handle requests for PDF files, which I k
 and code involved in using an MVC controller, so decided to opt for the ASP.Net Empty Project template, knowing that I should be able to get MVC added later into the same 
 project if/when needed. So far so good, the website was launched, PDFs were served to users, everybody was happy.
 
-### But the requirements changed... now I need MVC!
+## But the requirements changed... now I need MVC!
 
 Developers should never be surprised when the requirements change, even the best planned projects can have shifting requirements. In my case, the project I had built
 that was intended to only serve PDFs from a download link on other websites now needed the ability to browse the complete catalog of available PDFs in a category structure.
@@ -37,7 +37,7 @@ I'd be able to easily add missing Views for ActionResult methods where Visual St
 
 It turns out, it doesn't magically work like that. Once you've installed the MVC Nuget package, there are a few more steps you need to do to get your controllers firing for requested urls.
 
-#### Step One: Set up your routing
+### Step One: Set up your routing
 
 So you've added your controller with one or more actions. Now, as you would with a standard MVC project, you need to map your controller actions to urls using [Routing](http://www.asp.net/mvc/tutorials/older-versions/controllers-and-routing/asp-net-mvc-routing-overview-cs).
 To do this, you'll need to ensure your routing is being managed either within the Global.asax file or handled via [WebActivator](https://github.com/davidebbo/WebActivator).
@@ -75,7 +75,7 @@ namespace MyPlainAspNetApplication
 
 </pre>
 
-#### Step Two: Setup the standard handlers in the root-level web.config file
+### Step Two: Setup the standard handlers in the root-level web.config file
 
 Within the system.webServer node in the web.config, the following needs to be added to ensure that ASP.Net intercepts requests for extensionless urls.
 Without this, request urls that you've just set up routing for will return a 404 error.
@@ -92,7 +92,7 @@ Without this, request urls that you've just set up routing for will return a 404
 &lt;/handlers&gt;
 </pre>
 
-#### Step Three: Other necessary web.config changes
+### Step Three: Other necessary web.config changes
 
 There are two required appSettings values that need to be added for MVC to work properly. Ensure these are added to the web.config.
 
@@ -107,18 +107,18 @@ Next, the standard MVC pages node needs to be added to the web.config system.web
 
 <pre>
 &lt;pages&gt;
-    &lt;namespaces&gt;
-    &lt;add namespace="System.Web.Helpers" /&gt;
-    &lt;add namespace="System.Web.Mvc" /&gt;
-    &lt;add namespace="System.Web.Mvc.Ajax" /&gt;
-    &lt;add namespace="System.Web.Mvc.Html" /&gt;
-    &lt;add namespace="System.Web.Routing" /&gt;
-    &lt;add namespace="System.Web.WebPages" /&gt;
-    &lt;/namespaces&gt;
- &lt;/pages&gt;
+	&lt;namespaces&gt;
+		&lt;add namespace="System.Web.Helpers" /&gt;
+		&lt;add namespace="System.Web.Mvc" /&gt;
+		&lt;add namespace="System.Web.Mvc.Ajax" /&gt;
+		&lt;add namespace="System.Web.Mvc.Html" /&gt;
+		&lt;add namespace="System.Web.Routing" /&gt;
+		&lt;add namespace="System.Web.WebPages" /&gt;
+	&lt;/namespaces&gt;
+&lt;/pages&gt;
 </pre>
 
-#### Step Four: Hacking the project file to behave like an MVC project
+### Step Four: Hacking the project file to behave like an MVC project
 
 Steps 1 to 3 could be handled as the MVC package is installed from Nuget - perhaps they will be in the future with some web.config transforms and the insertion of some routing code.
 Next is the main part that I feel the Visual Studio/MVC teams could do better with. When you create a new MVC project (as opposed to an empty ASP.Net project), the whole Visual Studio IDE gears itself towards MVC to 
@@ -151,7 +151,7 @@ your "Controllers" folder in the Solution Explorer, adding View files becomes ea
 Problem solved.
 
 
-
+#### Useful information
 
 I worked out how to do this by comparing my empty ASP.Net project with a new MVC project. I also gained help relating to ProjectTypeGuids from the following two pages:
 
