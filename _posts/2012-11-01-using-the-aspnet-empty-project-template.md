@@ -82,13 +82,14 @@ Without this, request urls that you've just set up routing for will return a 404
 
 <pre>
 &lt;modules runAllManagedModulesForAllRequests="true" /&gt;
+&lt;handlers&gt;
 &lt;remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" /&gt;
       &lt;remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" /&gt;
       &lt;remove name="ExtensionlessUrlHandler-Integrated-4.0" /&gt;
       &lt;add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" /&gt;
       &lt;add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" /&gt;
       &lt;add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" /&gt;
-
+&lt;/handlers&gt;
 </pre>
 
 #### Step Three: Other necessary web.config changes
