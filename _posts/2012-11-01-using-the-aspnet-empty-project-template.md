@@ -147,7 +147,7 @@ is MVC 4, Web Application and C#.
 
 Also, in the same PropertyGroup node as the ProjectTypeGuids is a child of, add the following node:
 <pre>
-	    &lt;MvcBuildViews&gt;false&lt;/MvcBuildViews&gt;
+&lt;MvcBuildViews&gt;false&lt;/MvcBuildViews&gt;
 </pre>
 
 Once that has been done, you can open your solution file again, and you should notice that your project is an MVC project. You get the "Add Controller..." context menu option once you click on
