@@ -34,6 +34,22 @@ understanding key concepts behind the system and the way it has been built.
 One of the main goals has been simplicity, and a hope that my passion for .NET and open source projects would encourage development of something which I feel is lacking in
 the .NET open source community; a decent, capable yet simple CMS that wouldn't put up barriers to developers looking to build on top of a CMS with some bespoke functionality.
 
+The name comes from a concept that I struggle to get out of my head sometimes when looking at code. Coding is all about creating layers, like bricks when building a house. Use too many layers
+and things get more tricky. Don't add unnecessary layers of abstractions - use extra layers only when you need to and when it feels right, and this should help you create better
+written code.
+
+### Made with great open source software
+
+There's so much great open source software out there, you'd be a fool to not use it and participate in the communities. Amongst others, Layers CMS uses Asp.NET MVC4, MvcMailer, Twitter Bootstrap (minimal use for form styling and buttons) and Attribute Routing.
+
+[MvcMailer](https://github.com/smsohan/MvcMailer) is used to power email notifications from the contact forms.
+
+[Twitter Bootstrap](http://twitter.github.com/bootstrap/) is used for some basic styling, mainly for the contact form.
+
+[Attribute Routing](https://github.com/mccalltd/AttributeRouting/wiki) is used to make it easier to define routes within your controller, no need to faff about with the global.asax to define your routes (unless you really want to!).
+
+## Getting involved
+
 If you want an all singing, all dancing CMS, check out some of the links above. If you too have seen the state of open source .NET CMSs and have seen the need for a more simple solution,
 feel free to take a look at Layers CMS. It's on [Github](https://github.com/stevekennaird/LayersCMS), and I would welcome any feedback/criticism/opinions/pull requests!
 
