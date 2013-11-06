@@ -166,4 +166,4 @@ You can download the full solution [here][5]
 
 [4]: <http://www.github.com/>
 
-[5]: </assets/code/DynamicScssVariables.zip>
+[5]: <http://stevekennaird.github.io/assets/code/DynamicScssVariables.zip>
