@@ -70,7 +70,7 @@ but it works and might give you some clues as to how you can achieve something
 similar.
 
 
-```
+<pre>
 using System;
 using System.IO;
 using System.Linq;
@@ -153,7 +153,7 @@ namespace Attempt2.Controllers
 
     }
 }
-```
+</pre>
 
 You can download the full solution [here][5]
 
