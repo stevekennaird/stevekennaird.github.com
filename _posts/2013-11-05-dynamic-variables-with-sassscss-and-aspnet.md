@@ -1,18 +1,15 @@
---- 
+---
 layout: post
-post title: "Dynamic Variables with SASS/SCSS and ASP.Net"
-description: "" 
+title: "Dynamic Variables with SASS SCSS and ASP.Net"
+description: ""
 category:  "ASP.Net"
-tags: [sass, css, design] 
---- 
-
+tags: [sass, scss, css, design]
+---
 {% include JB/setup %}
 
 At work we're in the process of building a new SAAS product which needs to be
 themed/skinned per customer (where the customer is a company, each with many
 employees).
-
-
 
 The designer we're working with sold me on the merits of using Compass with
 SCSS. The variables used in SASS are perfect for writing minimal maintainable
@@ -21,14 +18,10 @@ find'n'replace process through multiple css files. The challenge for me and my
 team is to popuplate the SASS variables in ASP.Net from the server side. This
 wasn't as easy as I expected.
 
-
-
 I checked out [Nuget][1] and [StackOverflow][2] in the hope of finding some assistance.
 After looking into a few options that come up through Nuget, I couldn't find
 something that made this easy. And on StackOverflow, there wasn't really any
 help. So it was time to get my hands dirty!
-
-
 
 One Nuget package that I did like was [SassAndCoffee][3]. This package took care
 of all the Ruby-related stuff for me. It transforms .sass/.scss files as they're
@@ -41,22 +34,14 @@ re-writing and contributing to the project on [GitHub][4], but the repository
 wasn't very active, and had open pull requests that hadn't been looked into for
 over a year.
 
-
-
 I was trying to use the @import command to import a client-specific .scss file
 into the main .scss file for the website. This failed, as the ruby tool which
 compiles .scss to css required any imported files to be saved on the disk.
 
-
-
 But, this package was still useful. I just had to think from a completely
 different angle.
 
-
-
 The solution ended up being pretty simple.
-
-
 
 1.  Based on a value in the user's session, write the path to the css file into
     the view, with the path being something like /content/scss/client-123.css
@@ -85,7 +70,6 @@ but it works and might give you some clues as to how you can achieve something
 similar.
 
 
-`
 using System;
 using System.IO;
 using System.Linq;
@@ -169,9 +153,6 @@ namespace Attempt2.Controllers
     }
 }
 
-`
-
-
 
 [1]: <http://www.nuget.org/>
 
@@ -180,7 +161,3 @@ namespace Attempt2.Controllers
 [3]: <https://github.com/paulcbetts/SassAndCoffee>
 
 [4]: <http://www.github.com/>
-
-
-
-
