@@ -41,7 +41,7 @@ into the main .scss file for the website. This failed, as the ruby tool which
 compiles .scss to css required any imported files to be saved on the disk.
 
 But, this package was still useful. I just had to think from a completely
-different angle.
+different angle (with a bit of assistance from a [friend][6]).
 
 ## The Solution
 
@@ -171,3 +171,5 @@ You can download the full solution [here][5]
 [4]: <http://www.github.com/>
 
 [5]: <http://stevekennaird.github.io/assets/code/DynamicScssVariables.zip>
+
+[6]: <https://twitter.com/JonathanGillUK>
