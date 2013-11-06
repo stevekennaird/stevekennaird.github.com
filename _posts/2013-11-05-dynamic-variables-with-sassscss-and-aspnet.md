@@ -1,7 +1,12 @@
---- layout: post title: "Dynamic Variables with SASS/SCSS and ASP.Net"
-description: "" category:  tags: [sass, css, design] --- {% include JB/setup %}
+--- 
+layout: post
+post title: "Dynamic Variables with SASS/SCSS and ASP.Net"
+description: "" 
+category:  ASP.Net
+tags: [sass, css, design] 
+--- 
 
-
+{% include JB/setup %}
 
 At work we're in the process of building a new SAAS product which needs to be
 themed/skinned per customer (where the customer is a company, each with many
@@ -18,7 +23,7 @@ wasn't as easy as I expected.
 
 
 
-I hit [Nuget][1] and [StackOverflow][2] in the hope of finding some assistance.
+I checked out [Nuget][1] and [StackOverflow][2] in the hope of finding some assistance.
 After looking into a few options that come up through Nuget, I couldn't find
 something that made this easy. And on StackOverflow, there wasn't really any
 help. So it was time to get my hands dirty!
@@ -80,57 +85,93 @@ but it works and might give you some clues as to how you can achieve something
 similar.
 
 
+`
+using System;
+using System.IO;
+using System.Linq;
+using System.Web.Mvc;
 
-`using System; using System.IO; using System.Linq; using System.Web.Mvc;`
+namespace Attempt2.Controllers
+{
+    public class HomeController : Controller
+    {
+        private const string BaseScssDirectory = "~/content/scss/";
+        private const string OutputDirectory = "clients/";
+        private const string MainScssFilename = "main.scss";
+        private const string OutputFilenameFormat = "client-{0}.scss";
+        
+        public ActionResult Index(int? clientId)
+        {
+            int useClientId = clientId.GetValueOrDefault(1);
+            Session["ClientId"] = useClientId;
 
-`namespace Attempt2.Controllers { public class HomeController : Controller {
-private const string BaseScssDirectory = "~/content/scss/"; private const string
-OutputDirectory = "clients/"; private const string MainScssFilename =
-"main.scss"; private const string OutputFilenameFormat = "client-{0}.scss";
-public ActionResult Index(int? clientId) { int useClientId =
-clientId.GetValueOrDefault(1); Session["ClientId"] = useClientId;`
+            if (!ClientScssExists(useClientId))
+            {
+                SaveClientScssFile(useClientId);
+            }
 
-            `if (!ClientScssExists(useClientId)) {
-            SaveClientScssFile(useClientId); }`
 
-` return View(); }`
+            return View();
+        }
 
-        `bool ClientScssExists(int clientId) { string filename =
-        string.Format(OutputFilenameFormat, clientId); string path =
-        Server.MapPath(String.Format("{0}{1}{2}", BaseScssDirectory,
-        OutputDirectory, filename)); return System.IO.File.Exists(path); }`
+        bool ClientScssExists(int clientId)
+        {
+            string filename = string.Format(OutputFilenameFormat, clientId);
+            string path = Server.MapPath(String.Format("{0}{1}{2}", BaseScssDirectory, OutputDirectory, filename));
+            return System.IO.File.Exists(path);
+        }
 
-        `private string GenerateClientScss(int clientId) { string mainCss =
-        GetMainScss(); string themeCss = GenerateThemeScss(clientId);`
+        private string GenerateClientScss(int clientId)
+        {
+            string mainCss = GetMainScss();
+            string themeCss = GenerateThemeScss(clientId);
 
-            `return string.Format("{0}{1}{2}", themeCss,
-            string.Concat(Enumerable.Repeat(Environment.NewLine, 5)), mainCss);
-            }`
+            return string.Format("{0}{1}{2}", themeCss, string.Concat(Enumerable.Repeat(Environment.NewLine, 5)), mainCss);
+        }
 
-        `private string GenerateThemeScss(int clientId) { switch (clientId) {
-        case 1: return @"PrimaryColour: red;"; case 2: return @"PrimaryColour:
-        green;"; case 3: return @"PrimaryColour: blue;"; default: return
-        @"PrimaryColour: black;"; } }`
+        private string GenerateThemeScss(int clientId)
+        {
+            switch (clientId)
+            {
+                case 1:
+                    return @"$PrimaryColour: red;";
+                case 2:
+                    return @"$PrimaryColour: green;";
+                case 3:
+                    return @"$PrimaryColour: blue;";
+                default:
+                    return @"$PrimaryColour: black;";
+            }
+        }
 
-        `private string GetMainScss() { string filePath =
-        string.Format("{0}{1}", BaseScssDirectory, MainScssFilename); return
-        System.IO.File.ReadAllText(Server.MapPath(filePath)); }`
+        private string GetMainScss()
+        {
+            string filePath = string.Format("{0}{1}", BaseScssDirectory, MainScssFilename);
+            return System.IO.File.ReadAllText(Server.MapPath(filePath));
+        }
 
-        `private void SaveClientScssFile(int clientId) { string filename =
-        string.Format(OutputFilenameFormat, clientId); string filePath =
-        string.Format("{0}{1}{2}", BaseScssDirectory, OutputDirectory,
-        filename); filePath = Server.MapPath(filePath);`
+        private void SaveClientScssFile(int clientId)
+        {
+            string filename = string.Format(OutputFilenameFormat, clientId);
+            string filePath = string.Format("{0}{1}{2}", BaseScssDirectory, OutputDirectory, filename);
+            filePath = Server.MapPath(filePath);
 
-            `string clientScss = GenerateClientScss(clientId);`
+            string clientScss = GenerateClientScss(clientId);
 
-            `using (var writer = new StreamWriter(filePath, false)) {
-            writer.WriteLine(clientScss); }`
+            using (var writer = new StreamWriter(filePath, false))
+            {
+                writer.WriteLine(clientScss);
+            }
 
-        `}`
+        }
 
-` } }`
 
-NaN. 
+    }
+}
+
+`
+
+
 
 [1]: <http://www.nuget.org/>
 
