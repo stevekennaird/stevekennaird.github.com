@@ -70,6 +70,7 @@ but it works and might give you some clues as to how you can achieve something
 similar.
 
 
+```
 using System;
 using System.IO;
 using System.Linq;
@@ -152,6 +153,9 @@ namespace Attempt2.Controllers
 
     }
 }
+```
+
+You can download the full solution [here][5]
 
 
 [1]: <http://www.nuget.org/>
@@ -161,3 +165,5 @@ namespace Attempt2.Controllers
 [3]: <https://github.com/paulcbetts/SassAndCoffee>
 
 [4]: <http://www.github.com/>
+
+[5]: </assets/code/DynamicScssVariables.zip>
