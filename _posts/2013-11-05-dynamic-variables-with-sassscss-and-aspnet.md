@@ -2,7 +2,7 @@
 layout: post
 post title: "Dynamic Variables with SASS/SCSS and ASP.Net"
 description: "" 
-category:  ASP.Net
+category:  "ASP.Net"
 tags: [sass, css, design] 
 --- 
 
