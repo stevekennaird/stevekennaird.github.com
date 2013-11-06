@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dynamic Variables with SASS SCSS and ASP.Net"
+title: "Dynamic Variables with SASS (SCSS) and ASP.Net"
 description: ""
 category:  "ASP.Net"
 tags: [sass, scss, css, design]
