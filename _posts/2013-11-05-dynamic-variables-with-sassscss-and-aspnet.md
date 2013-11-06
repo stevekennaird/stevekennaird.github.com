@@ -1,11 +1,13 @@
 ---
 layout: post
-title: "Dynamic Variables with SASS (SCSS) and ASP.Net"
+title: "Dynamic Variables in SASS (SCSS) with ASP.Net"
 description: ""
 category:  "ASP.Net"
 tags: [sass, scss, css, design]
 ---
 {% include JB/setup %}
+
+## The Problem
 
 At work we're in the process of building a new SAAS product which needs to be
 themed/skinned per customer (where the customer is a company, each with many
@@ -32,14 +34,16 @@ use as SASS variable values). I downloaded the source from the repo, and got
 something to work, but not in a way that I was happy with. I considered
 re-writing and contributing to the project on [GitHub][4], but the repository
 wasn't very active, and had open pull requests that hadn't been looked into for
-over a year.
+over a year, plus I feared my Ruby knowledge might not be of the required standard.
 
-I was trying to use the @import command to import a client-specific .scss file
+I was trying to use the `@import` command to import a client-specific .scss file
 into the main .scss file for the website. This failed, as the ruby tool which
 compiles .scss to css required any imported files to be saved on the disk.
 
 But, this package was still useful. I just had to think from a completely
 different angle.
+
+## The Solution
 
 The solution ended up being pretty simple.
 
