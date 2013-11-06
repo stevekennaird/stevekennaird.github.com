@@ -36,7 +36,7 @@ re-writing and contributing to the project on [GitHub][4], but the repository
 wasn't very active, and had open pull requests that hadn't been looked into for
 over a year, plus I feared my Ruby knowledge might not be of the required standard.
 
-I was trying to use the `@import` command to import a client-specific .scss file
+I was trying to use the @import command to import a client-specific .scss file
 into the main .scss file for the website. This failed, as the ruby tool which
 compiles .scss to css required any imported files to be saved on the disk.
 
