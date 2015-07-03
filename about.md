@@ -15,7 +15,7 @@ Horses for courses and all that, but when MVC3 was released, it really felt righ
 
 I keep private work to an absolute minimum now, as allowing my brain to recharge outside of work hours pays dividends in both my career and my social life.
 
-My portfolio is available on my (currently outdated) [personal website](http://www.steveonthefly.co.uk/).
+My portfolio is available on my (currently outdated!) [personal website](http://www.steveonthefly.co.uk/).
 
 <a href="http://stackoverflow.com/users/1024152/steve-kennaird">
 <img src="http://stackoverflow.com/users/flair/1024152.png?theme=dark" width="208" height="58" alt="profile for Steve Kennaird at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Steve Kennaird at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
